@@ -20,17 +20,17 @@ namespace PDII_F
 
         public static void Setup() 
         {
-            AddItem("a", 0);
-            AddItem("b", 0);
-            AddItem("c", 0);
-            AddItem("d", 0);
-            AddItem("e", 0);
-            AddItem("f", 0);
-            AddItem("g", 0);
-            AddItem("h", 0);
-            AddItem("i", 0);
-            AddItem("j", 0);
-            AddItem("k", 0);
+            AddItem("原味肉包", 30);
+            AddItem("辣味肉包", 30);
+            AddItem("雞肉起司包", 30);
+            AddItem("蛋黃肉包", 35);
+            AddItem("大甲芋泥包(素)", 25);
+            AddItem("芝麻包(素)", 30);
+            AddItem("香菇蔬菜包(素)", 30);
+            AddItem("黑糖饅頭", 20);
+            AddItem("乳酪饅頭", 30);
+            AddItem("豆漿", 25);
+            AddItem("紅茶", 20);
         }
 
         public static Item._Item GetByIndex(int index) 

@@ -89,6 +89,7 @@ namespace PDII_F
             Label_info.Text = "Version : 0.0.2a\n" + System.DateTime.Now.ToString();
         }
 
+
         /// <summary>
         /// 這個部分由AI協助完成
         /// </summary>
@@ -144,18 +145,13 @@ namespace PDII_F
         }
         public void PanelObj_Enable(bool key)
         {
-            button3.Enabled = key;
-            button4.Enabled = key;
-            button5.Enabled = key;
-            button6.Enabled = key;
-            button7.Enabled = key;
-            button8.Enabled = key;
-            button9.Enabled = key;
-            button10.Enabled = key;
-            button11.Enabled = key;
-            button12.Enabled = key;
-            button13.Enabled = key;
-            btn_other.Enabled = key;
+            foreach (Control c in PanelObject.Controls) 
+            {
+                if (c is Button button) 
+                { 
+                    c.Enabled = key;
+                }
+            }
         }
         public void PanelStartup()
         {
@@ -179,11 +175,31 @@ namespace PDII_F
             }
         }
 
+        public void FinshClick(string name)
+        {
+            Item._Item i = MainItem.GetByName(name);
+            Item.Add_item(i);
+            show();
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel1.LinkVisited = true;
             System.Diagnostics.Process.Start("https://github.com/shu1035tingyi/PDII_F");
         }
+
+
+        private void button3_Click(object sender, EventArgs e) { FinshClick(button3.Text); }
+        private void button4_Click(object sender, EventArgs e) { FinshClick(button4.Text); }
+        private void button5_Click(object sender, EventArgs e) { FinshClick(button5.Text); }
+        private void button6_Click(object sender, EventArgs e) { FinshClick(button6.Text); }
+        private void button7_Click(object sender, EventArgs e) { FinshClick(button7.Text); }
+        private void button8_Click(object sender, EventArgs e) { FinshClick(button8.Text); }
+        private void button9_Click(object sender, EventArgs e) { FinshClick(button9.Text); }
+        private void button10_Click(object sender, EventArgs e) { FinshClick(button10.Text); }
+        private void button11_Click(object sender, EventArgs e) { FinshClick(button11.Text); }
+        private void button12_Click(object sender, EventArgs e) { FinshClick(button12.Text); }
+        private void button13_Click(object sender, EventArgs e) { FinshClick(button13.Text); }
 
     }   
 }

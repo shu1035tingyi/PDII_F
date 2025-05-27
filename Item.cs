@@ -29,6 +29,11 @@ namespace PDII_F
             Items.Add(add);
         }
 
+        public static void Add_item(_Item i) 
+        {
+            Items.Add(i);
+        }
+
         public static void DelLastItem() 
         {
             if (Items.Count > 0) 
@@ -70,7 +75,7 @@ namespace PDII_F
             tmp += $"\n\n\n            Total - {total.ToString()}\n";
             tmp += "= = = = = = = = = = = = = = = =\n";
 
-            if (total == 0) return "";
+            if (GetCount() == 0) return "";
 
             else return tmp;
         }
