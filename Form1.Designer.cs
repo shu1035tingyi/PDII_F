@@ -47,9 +47,11 @@
             this.btn_other = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button_print = new System.Windows.Forms.Button();
-            this.button_cancel = new System.Windows.Forms.Button();
+            this.button_reset = new System.Windows.Forms.Button();
             this.Label_info = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.button_start = new System.Windows.Forms.Button();
+            this.button_del_last = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.PanelObject.SuspendLayout();
@@ -174,11 +176,12 @@
             this.button_print.Name = "button_print";
             this.button_print.UseVisualStyleBackColor = true;
             // 
-            // button_cancel
+            // button_reset
             // 
-            resources.ApplyResources(this.button_cancel, "button_cancel");
-            this.button_cancel.Name = "button_cancel";
-            this.button_cancel.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.button_reset, "button_reset");
+            this.button_reset.Name = "button_reset";
+            this.button_reset.UseVisualStyleBackColor = true;
+            this.button_reset.Click += new System.EventHandler(this.button_del_all_Click);
             // 
             // Label_info
             // 
@@ -190,13 +193,29 @@
             this.Timer.Enabled = true;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // button_start
+            // 
+            resources.ApplyResources(this.button_start, "button_start");
+            this.button_start.Name = "button_start";
+            this.button_start.UseVisualStyleBackColor = true;
+            this.button_start.Click += new System.EventHandler(this.button_start_Click);
+            // 
+            // button_del_last
+            // 
+            resources.ApplyResources(this.button_del_last, "button_del_last");
+            this.button_del_last.Name = "button_del_last";
+            this.button_del_last.UseVisualStyleBackColor = true;
+            this.button_del_last.Click += new System.EventHandler(this.button_del_last_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
+            this.Controls.Add(this.button_del_last);
+            this.Controls.Add(this.button_start);
             this.Controls.Add(this.Label_info);
-            this.Controls.Add(this.button_cancel);
+            this.Controls.Add(this.button_reset);
             this.Controls.Add(this.button_print);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -216,7 +235,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_print;
-        private System.Windows.Forms.Button button_cancel;
+        private System.Windows.Forms.Button button_reset;
         private System.Windows.Forms.Panel PanelObject;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button8;
@@ -232,6 +251,8 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Label Label_info;
         private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.Button button_start;
+        private System.Windows.Forms.Button button_del_last;
     }
 }
 

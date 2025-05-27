@@ -29,18 +29,27 @@ namespace PDII_F
             Items.Add(add);
         }
 
-        public static string ShowItems() 
+        public static void DelLastItem() 
         {
-            string tmp = "= = = = = = = = = = = = = = = = = = =";
+            if (Items.Count > 0) 
+            {
+                Items.RemoveAt(Items.Count - 1);
+            }
+        }
+
+        public static string ShowItems(string time) 
+        {
+            string tmp = "= = = = = = = = = = = = = = = =\n"+time;
+            tmp += "\n\n\n-------------------------------";
             int total = 0;
             foreach (var item in Items)
             {
-                tmp += $"\n{item.Name} - -{item.Price.ToString()}";
+                tmp += "\n"+item.Name+ "                " + item.Price.ToString();
+                tmp += "\n-------------------------------";
                 total += item.Price;
             }
-            tmp += "\n---------------------------------------------";
-            tmp += $"\n                                              Total - {total.ToString()}\n";
-            tmp += "= = = = = = = = = = = = = = = = = = =\n";
+            tmp += $"\n\n\n                                             Total - {total.ToString()}\n";
+            tmp += "= = = = = = = = = = = = = = = =\n";
 
             if (total == 0) return "";
 
