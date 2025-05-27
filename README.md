@@ -1,6 +1,6 @@
 # Program Designing II Final Report
 ---
-![Static Badge](https://img.shields.io/badge/PDII-F--0.00.2a-orange)
+![Static Badge](https://img.shields.io/badge/PDII-F--0.0.2--alpha-orange)
 
 School    : SHU
 
@@ -36,7 +36,10 @@ public static int GetCount() return Items.Count();
 
 public static string ShowItems(string time) 
 {
-    string tmp = "= = = = = = = = = = = = = = = =\n"+time;
+    string s = String.Format("{0:0000000}",Form1.GetID());
+    string tmp = "= = = = = = = = = = = = = = = =\n "+time+"\n";
+
+    tmp += "\n訂單編號:        "+s;
     tmp += "\n\n\n-------------------------------";
     int total = 0;
     foreach (var item in Items)
@@ -54,7 +57,7 @@ public static string ShowItems(string time)
     tmp += $"\n\n\n            Total - {total.ToString()}\n";
     tmp += "= = = = = = = = = = = = = = = =\n";
 
-    if (total == 0) return "";
+    if (GetCount() == 0) return "";
 
     else return tmp;
 }
