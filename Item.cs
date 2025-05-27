@@ -37,6 +37,11 @@ namespace PDII_F
             }
         }
 
+        public static void Clear()
+        { 
+            Items.Clear();
+        }
+
         public static int GetCount() 
         {
             return Items.Count();
@@ -44,7 +49,10 @@ namespace PDII_F
 
         public static string ShowItems(string time) 
         {
-            string tmp = "= = = = = = = = = = = = = = = =\n"+time;
+            string s = String.Format("{0:0000000}",Form1.GetID());
+            string tmp = "= = = = = = = = = = = = = = = =\n "+time+"\n";
+
+            tmp += "\n訂單編號:        "+s;
             tmp += "\n\n\n-------------------------------";
             int total = 0;
             foreach (var item in Items)

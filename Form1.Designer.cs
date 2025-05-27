@@ -176,6 +176,7 @@
             resources.ApplyResources(this.button_print, "button_print");
             this.button_print.Name = "button_print";
             this.button_print.UseVisualStyleBackColor = true;
+            this.button_print.Click += new System.EventHandler(this.button_print_Click);
             // 
             // button_reset
             // 

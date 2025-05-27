@@ -26,7 +26,7 @@ namespace PDII_F
                 start(int.Parse(args[1]));
             }
         }
-        static void start(int id = 0) 
+        static void start(int id = 1) 
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
