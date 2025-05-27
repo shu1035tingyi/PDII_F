@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.SymbolStore;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,7 +18,6 @@ namespace PDII_F
         public Form1()
         {
             InitializeComponent();
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,10 +36,11 @@ namespace PDII_F
             {
                 MessageBox.Show(label1.Text, "預覽");
             }
+            show();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Label_info.Text = "Version : 0.0.1a\n"+ System.DateTime.Now.ToString();
+            Label_info.Text = "Version : 0.0.2a\n"+ System.DateTime.Now.ToString();
         }
 
         /// <summary>
@@ -52,11 +54,22 @@ namespace PDII_F
             //開啟other表單，並在確定後回傳資料
             if (other.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show($"{other.ItemName}\n{other.ItemPrice}");
-                // TODO: Make sure this in the class Item.
+                int p = 0;
+                bool success = int.TryParse(other.ItemPrice, out p);
+                if (success)
+                {
+                    Item.AddItem(other.ItemName, p);
+                }
+                else MessageBox.Show($"輸入參數: \"{other.ItemPrice}\" 無效!\n{success}");
             }
             other.Dispose();//釋放資源
 
+            show();
+        }
+
+        public void show()
+        {
+            label1.Text =  Item.ShowItems();
         }
     }
 }
