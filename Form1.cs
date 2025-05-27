@@ -15,6 +15,23 @@ namespace PDII_F
 {
     public partial class Form1 : Form
     {
+        private static int _id;
+        public static int ID 
+        {
+            get {return _id; }
+        }
+
+        public static void NextID() 
+        {
+            _id++;
+        }
+
+        public static int GetID() 
+        {
+            return ID;
+        }
+
+
         public bool Is_Satrted = false;
         public string Started_time = "";
         public Form1()
