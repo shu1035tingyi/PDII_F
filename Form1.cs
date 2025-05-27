@@ -47,6 +47,8 @@ namespace PDII_F
             Button_Enable(false);
             PanelObj_Enable(false);
             label1.Text = "";
+            MainItem.Setup();
+            PanelStartup();
         }
 
         private void button_del_all_Click(object sender, EventArgs e)
@@ -154,6 +156,19 @@ namespace PDII_F
             button12.Enabled = key;
             button13.Enabled = key;
             btn_other.Enabled = key;
+        }
+        public void PanelStartup()
+        {
+            int i = 0;
+            foreach (Control control in PanelObject.Controls)
+            {
+                if (control is Button button & control.Text != "其他(自訂輸入)")
+                {
+                    control.Text = MainItem.GetByIndex(i).Name;
+                    i++;
+                }
+                if (i == MainItem.GetCount()) break;
+            }
         }
         public void show()
         {
