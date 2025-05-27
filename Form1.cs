@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PDII_F
 {
@@ -123,8 +124,11 @@ namespace PDII_F
             show();
         }
         private void button_print_Click(object sender, EventArgs e)
-        {
-
+        { 
+            using (StreamWriter sw = File.AppendText(@".\Save.txt"))
+            {
+                sw.WriteLine(label1.Text);
+            }
             //這裡假設已連接明細印表機
             //
             // 使用 label1.Text 即可傳出
