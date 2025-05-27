@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ObjectPanel = new System.Windows.Forms.Panel();
+            this.PanelObject = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -44,52 +44,56 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.btn_other = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_print = new System.Windows.Forms.Button();
+            this.button_cancel = new System.Windows.Forms.Button();
             this.Label_info = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.ObjectPanel.SuspendLayout();
+            this.PanelObject.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Name = "panel1";
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Name = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.ObjectPanel);
+            this.groupBox1.BackColor = System.Drawing.Color.Ivory;
+            this.groupBox1.Controls.Add(this.PanelObject);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // ObjectPanel
+            // PanelObject
             // 
-            resources.ApplyResources(this.ObjectPanel, "ObjectPanel");
-            this.ObjectPanel.Controls.Add(this.button8);
-            this.ObjectPanel.Controls.Add(this.button9);
-            this.ObjectPanel.Controls.Add(this.button7);
-            this.ObjectPanel.Controls.Add(this.button10);
-            this.ObjectPanel.Controls.Add(this.button6);
-            this.ObjectPanel.Controls.Add(this.button5);
-            this.ObjectPanel.Controls.Add(this.button11);
-            this.ObjectPanel.Controls.Add(this.button4);
-            this.ObjectPanel.Controls.Add(this.button3);
-            this.ObjectPanel.Controls.Add(this.button12);
-            this.ObjectPanel.Controls.Add(this.button14);
-            this.ObjectPanel.Controls.Add(this.button13);
-            this.ObjectPanel.Name = "ObjectPanel";
+            resources.ApplyResources(this.PanelObject, "PanelObject");
+            this.PanelObject.Controls.Add(this.button8);
+            this.PanelObject.Controls.Add(this.button9);
+            this.PanelObject.Controls.Add(this.button7);
+            this.PanelObject.Controls.Add(this.button10);
+            this.PanelObject.Controls.Add(this.button6);
+            this.PanelObject.Controls.Add(this.button5);
+            this.PanelObject.Controls.Add(this.button11);
+            this.PanelObject.Controls.Add(this.button4);
+            this.PanelObject.Controls.Add(this.button3);
+            this.PanelObject.Controls.Add(this.button12);
+            this.PanelObject.Controls.Add(this.btn_other);
+            this.PanelObject.Controls.Add(this.button13);
+            this.PanelObject.Name = "PanelObject";
             // 
             // button8
             // 
@@ -151,11 +155,12 @@
             this.button12.Name = "button12";
             this.button12.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // btn_other
             // 
-            resources.ApplyResources(this.button14, "button14");
-            this.button14.Name = "button14";
-            this.button14.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btn_other, "btn_other");
+            this.btn_other.Name = "btn_other";
+            this.btn_other.UseVisualStyleBackColor = true;
+            this.btn_other.Click += new System.EventHandler(this.btn_other_Click);
             // 
             // button13
             // 
@@ -163,17 +168,17 @@
             this.button13.Name = "button13";
             this.button13.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // button_print
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.button_print, "button_print");
+            this.button_print.Name = "button_print";
+            this.button_print.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // button_cancel
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.button_cancel, "button_cancel");
+            this.button_cancel.Name = "button_cancel";
+            this.button_cancel.UseVisualStyleBackColor = true;
             // 
             // Label_info
             // 
@@ -189,9 +194,10 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Ivory;
             this.Controls.Add(this.Label_info);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_cancel);
+            this.Controls.Add(this.button_print);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -199,7 +205,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.ObjectPanel.ResumeLayout(false);
+            this.PanelObject.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -209,9 +215,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel ObjectPanel;
+        private System.Windows.Forms.Button button_print;
+        private System.Windows.Forms.Button button_cancel;
+        private System.Windows.Forms.Panel PanelObject;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
@@ -222,7 +228,7 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button btn_other;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Label Label_info;
         private System.Windows.Forms.Timer Timer;
