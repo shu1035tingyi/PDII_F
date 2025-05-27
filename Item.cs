@@ -44,16 +44,33 @@ namespace PDII_F
             int total = 0;
             foreach (var item in Items)
             {
-                tmp += "\n"+item.Name+ "                " + item.Price.ToString();
+                int n = 20-CheckString(item.Name);
+                string space = "";
+                for (int i = 0; i < n; i++)
+                {
+                    space += " ";
+                }
+                tmp += "\n"+item.Name+ space + item.Price.ToString();
                 tmp += "\n-------------------------------";
                 total += item.Price;
             }
-            tmp += $"\n\n\n                                             Total - {total.ToString()}\n";
+            tmp += $"\n\n\n            Total - {total.ToString()}\n";
             tmp += "= = = = = = = = = = = = = = = =\n";
 
             if (total == 0) return "";
 
             else return tmp;
+        }
+
+        private static int CheckString(string s)
+        {
+            int tmp = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if ((int)s[i] > 127) tmp += 2;
+                else tmp += 1;
+            }
+            return tmp;
         }
     }
 }
