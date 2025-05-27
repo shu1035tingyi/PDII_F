@@ -52,6 +52,7 @@
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.button_start = new System.Windows.Forms.Button();
             this.button_del_last = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.PanelObject.SuspendLayout();
@@ -207,11 +208,19 @@
             this.button_del_last.UseVisualStyleBackColor = true;
             this.button_del_last.Click += new System.EventHandler(this.button_del_last_Click);
             // 
+            // linkLabel1
+            // 
+            resources.ApplyResources(this.linkLabel1, "linkLabel1");
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button_del_last);
             this.Controls.Add(this.button_start);
             this.Controls.Add(this.Label_info);
@@ -226,6 +235,7 @@
             this.groupBox1.ResumeLayout(false);
             this.PanelObject.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -253,6 +263,7 @@
         private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.Button button_start;
         private System.Windows.Forms.Button button_del_last;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

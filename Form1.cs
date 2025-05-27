@@ -129,5 +129,11 @@ namespace PDII_F
                 Button_Enable(true);
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.LinkVisited = true;
+            System.Diagnostics.Process.Start("https://github.com/shu1035tingyi/PDII_F");
+        }
     }
 }
