@@ -52,11 +52,15 @@ namespace PDII_F
         //預覽目前項目
         private void label1_Click(object sender, EventArgs e)
         {
+            show();
             if (label1.Text != "")
             {
-                MessageBox.Show(label1.Text, "預覽");
+                OverView ov = new OverView();
+                ov.LabelViewText = label1.Text;
+                ov.ShowDialog();
+                ov.Dispose();
             }
-            show();
+            
         }
         private void Timer_Tick(object sender, EventArgs e)
         {

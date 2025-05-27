@@ -59,6 +59,12 @@
     <Compile Include="Other.Designer.cs">
       <DependentUpon>Other.cs</DependentUpon>
     </Compile>
+    <Compile Include="OverView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OverView.Designer.cs">
+      <DependentUpon>OverView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -69,6 +75,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Other.resx">
       <DependentUpon>Other.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OverView.resx">
+      <DependentUpon>OverView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
