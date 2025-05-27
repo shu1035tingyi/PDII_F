@@ -60,7 +60,6 @@ namespace PDII_F
                 ov.ShowDialog();
                 ov.Dispose();
             }
-            
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -92,6 +91,10 @@ namespace PDII_F
         }
         private void button_del_last_Click(object sender, EventArgs e)
         {
+            if (Item.GetCount() == 1) 
+            {
+                button_del_last.Enabled = false;
+            }
             Item.DelLastItem();
             show();
         }
@@ -126,7 +129,5 @@ namespace PDII_F
                 Button_Enable(true);
             }
         }
-
-        
     }
 }

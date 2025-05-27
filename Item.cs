@@ -37,6 +37,11 @@ namespace PDII_F
             }
         }
 
+        public static int GetCount() 
+        {
+            return Items.Count();
+        }
+
         public static string ShowItems(string time) 
         {
             string tmp = "= = = = = = = = = = = = = = = =\n"+time;
@@ -62,6 +67,13 @@ namespace PDII_F
             else return tmp;
         }
 
+
+        /// <summary>
+        /// 使用ascii來判斷字串的寬度，因中文字符寬度較大，則以`2`來記數。
+        /// 來源: "https://blog.csdn.net/u014453443/article/details/121784786"
+        /// </summary>
+        /// <param name="s">string</param>
+        /// <returns>return 0 if null or "" </returns>
         private static int CheckString(string s)
         {
             int tmp = 0;

@@ -12,10 +12,11 @@ namespace PDII_F
 {
     public partial class OverView : Form
     {
+        //對 OverView 添加 LabelViewText 屬性，以便於資料傳入
         public string LabelViewText
         {
-            get { return label1.Text; } // 也可以提供 get，但這裡主要用於設定
-            set { label1.Text = value; } // 將傳入的值設定給 labelView.Text
+            get { return label1.Text; } 
+            set { label1.Text = value; }
         }
         public OverView()
         {
