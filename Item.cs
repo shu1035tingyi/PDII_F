@@ -9,16 +9,8 @@ using System.Windows.Forms.VisualStyles;
 
 namespace PDII_F
 {
-    internal class Item
+    internal class Item : Stuff
     {
-        public class _Item
-        {
-            public string Name { get; set; }
-            public int Price { get; set; }
-
-        }
-       
-
         public static List<Item._Item> Items = new List<Item._Item>();
         
         public static void AddItem(string name, int price)

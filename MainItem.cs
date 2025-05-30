@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PDII_F
-{
+{   
     internal class MainItem
     {
-        public static List<Item._Item> MainItems = new List<Item._Item>();
+        public static List<Stuff._Item> MainItems = new List<Stuff._Item>();
 
         public static void AddItem(string name,int price) 
         {
