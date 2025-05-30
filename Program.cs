@@ -35,9 +35,10 @@ namespace PDII_F
                     
 
                 case "-d":
-                    Console.WriteLine("-------->DEBUG MODE");
+                    Console.WriteLine("-------->DEBUG MODE\n\n");
                     try
                     {
+                        Console.WriteLine("Loading Class MainItem...");
                         MainItem.Setup();
                         for (int i = 0; i < MainItem.GetCount(); i++)
                         {
@@ -49,9 +50,29 @@ namespace PDII_F
                     {
                         Console.WriteLine(" MainItem 載入錯誤: " + e.Message);
                     }
+                    finally 
+                    {
+                        Console.WriteLine("MainItem End. . .");
+                        try
+                        {
+                            Console.WriteLine("Class Item Test...");
+                            Item.ShowItems("YYYY/MM/DD - - - - ", Item.Items);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(" Item 載入錯誤: " + e.Message);
+                        }
+                        finally
+                        {
+                            Console.WriteLine("Item End. . .");
+                        }
+
+                    }
+                    Console.WriteLine("\"-------->DEBUG MODE\n\n");
+                    Console.WriteLine("請按任意鍵結束程式...");
+                    Console.ReadKey();
 
                     break;
-
 
                 default:
                     {

@@ -44,7 +44,7 @@ namespace PDII_F
             return Items.Count();
         }
 
-        public static string ShowItems(string time) 
+        public static string ShowItems(string time, List<Stuff._Item> list) 
         {
             string s = String.Format("{0:0000000}",Form1.GetID());
             string tmp = "= = = = = = = = = = = = = = = =\n "+time+"\n";
@@ -52,7 +52,7 @@ namespace PDII_F
             tmp += "\n訂單編號:        "+s;
             tmp += "\n\n\n-------------------------------";
             int total = 0;
-            foreach (var item in Items)
+            foreach (var item in list)
             {
                 int n = 20-CheckString(item.Name);
                 string space = "";

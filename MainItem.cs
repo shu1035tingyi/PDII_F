@@ -10,7 +10,7 @@ namespace PDII_F
     {
         public static List<Stuff._Item> MainItems = new List<Stuff._Item>();
 
-        public static void AddItem(string name,int price) 
+        public static void AddItem(string name,int price)
         {
             Item._Item add = new Item._Item();
             add.Name = name;

@@ -172,7 +172,7 @@ namespace PDII_F
         }
         public void show()
         {
-            label1.Text = Item.ShowItems(Started_time);
+            label1.Text = Item.ShowItems(Started_time,Item.Items);
             if (label1.Text != "")
             {
                 Button_Enable(true);
