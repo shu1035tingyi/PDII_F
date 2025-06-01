@@ -48,7 +48,7 @@ namespace PDII_F
             Button_Enable(false);
             PanelObj_Enable(false);
             label1.Text = "";
-            MainItem.Setup();
+            MainItem.Setup(false);
             PanelStartup();
         }
 
@@ -106,9 +106,9 @@ namespace PDII_F
                 bool success = int.TryParse(other.ItemPrice, out p);
                 if (success)
                 {
-                    Item.AddItem(other.ItemName+" -自訂項目", p);
+                    Item.Add_item(Item.Parse(other.ItemName+" -自訂項目", p));
                 }
-                else MessageBox.Show($"輸入參數: \"{other.ItemPrice}\" 無效!\n{success}");
+                else MessageBox.Show($"輸入參數: \"{other.ItemPrice}\" 無效!\n","OK" ,MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             other.Dispose();//釋放資源
 
@@ -136,7 +136,7 @@ namespace PDII_F
 
             button_del_all_Click(sender,e);
             Form1.NextID();
-            MessageBox.Show("訂單完成");
+            MessageBox.Show("訂單完成","",MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             
         }
 

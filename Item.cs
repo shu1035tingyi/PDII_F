@@ -12,14 +12,7 @@ namespace PDII_F
     internal class Item : Stuff
     {
         public static List<_Item> Items = new List<_Item>();
-        
-        public static void AddItem(string name, int price)
-        {
-            _Item add = new _Item();
-            add.Name = name;
-            add.Price = price;
-            Items.Add(add);
-        }
+
 
         public static void Add_item(_Item i) 
         {

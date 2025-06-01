@@ -13,10 +13,14 @@ namespace PDII_F
 {
     internal static class Program
     {
-        
         /// <summary>
         /// 應用程式的主要進入點。
+        /// * 這裡屬實是超綱了:)
         /// </summary>
+        /// <param name="args"> 外部開啟時的可選參數。
+        /// "-r [int]": 從指定的訂單ID開始;
+        /// "-d": 開始除錯模式。
+        /// </param>
         [STAThread]
         static void Main(string[] args)
         {
@@ -26,7 +30,7 @@ namespace PDII_F
                 {
                     case "-r":
 
-                        if (args[0] == "-r" | int.Parse(args[1]) < 0)
+                        if (args[0] == "-r" & int.Parse(args[1]) > 0)
                         {
                             start(int.Parse(args[1]));
                         }
@@ -60,7 +64,7 @@ namespace PDII_F
                             try
                             {
                                 debug_contex += ("Class Item Test...\n");
-                                for (int i = -10; i < 20; i++) Item.AddItem(i.ToString(),i);
+                                for (int i = -10; i < 20; i++) Item.Parse(i.ToString(),i);
                                 while (Form1.ID < 9999999) Form1.NextID();
                                 debug_contex += Item.ShowItems("YYYY/MM/DD - - - - ", Item.Items);
                             }
@@ -99,7 +103,7 @@ namespace PDII_F
             }
 
             Application.Run(form1);
-            MessageBox.Show("目前單號:" + Form1.GetID().ToString(),"程式結束");
+            MessageBox.Show("目前單號:" + Form1.GetID().ToString(),"程式結束",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
         }
         static void debug_start(string s) 
         {

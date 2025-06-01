@@ -12,7 +12,13 @@ namespace PDII_F
         {
             public string Name { get; set; }
             public int Price { get; set; }
-            
+        }
+        public static _Item Parse(string name,int price)
+        {
+            _Item item = new _Item();
+            item.Name = name;
+            item.Price = price;
+            return item;
         }
     }
 }

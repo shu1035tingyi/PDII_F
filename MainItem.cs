@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+using System.Data;
 
 namespace PDII_F
 {   
@@ -10,27 +14,54 @@ namespace PDII_F
     {
         public static List<_Item> MainItems = new List<_Item>();
 
-        public static void AddItem(string name,int price)
+
+        public static void Setup(bool ez_way = true)
         {
-            _Item add = new _Item();
-            add.Name = name;
-            add.Price = price;
-            MainItems.Add(add);
+            if (ez_way)
+            {
+                MainItems.Add(MainItem.Parse("原味肉包", 30));
+                MainItems.Add(MainItem.Parse("辣味肉包", 30));
+                MainItems.Add(MainItem.Parse("雞肉起司包", 30));
+                MainItems.Add(MainItem.Parse("蛋黃肉包", 35));
+                MainItems.Add(MainItem.Parse("大甲芋泥包(素)", 25));
+                MainItems.Add(MainItem.Parse("芝麻包(素)", 30));
+                MainItems.Add(MainItem.Parse("香菇蔬菜包(素)", 30));
+                MainItems.Add(MainItem.Parse("黑糖饅頭", 20));
+                MainItems.Add(MainItem.Parse("乳酪饅頭", 30));
+                MainItems.Add(MainItem.Parse("豆漿", 25));
+                MainItems.Add(MainItem.Parse("紅茶", 20));
+            }
+            else 
+            {
+                MainItems = ReadMainItem();
+            }
         }
 
-        public static void Setup() 
+        private static List<_Item> ReadMainItem(string Path = @".\MainItem.txt") 
         {
-            AddItem("原味肉包", 30);
-            AddItem("辣味肉包", 30);
-            AddItem("雞肉起司包", 30);
-            AddItem("蛋黃肉包", 35);
-            AddItem("大甲芋泥包(素)", 25);
-            AddItem("芝麻包(素)", 30);
-            AddItem("香菇蔬菜包(素)", 30);
-            AddItem("黑糖饅頭", 20);
-            AddItem("乳酪饅頭", 30);
-            AddItem("豆漿", 25);
-            AddItem("紅茶", 20);
+            List<_Item> items = new List<_Item>();
+            String line;
+            try
+            {
+                StreamReader sr = new StreamReader(Path);
+                line = sr.ReadLine();
+                while (line != null)
+                {
+                    if (!line.StartsWith("#"))
+                    {
+                        string[] tmp = new string[2];
+                        tmp = line.Split(' ');
+                        items.Add(MainItem.Parse(tmp[0], int.Parse(tmp[1])));
+                    }
+                    line = sr.ReadLine();
+                }
+                sr.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e}\n請盡速聯繫開發人員!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return items;
         }
 
         public static _Item GetByIndex(int index) 
@@ -51,6 +82,5 @@ namespace PDII_F
         {
             return MainItems.Count();
         }
-
     }
 }
