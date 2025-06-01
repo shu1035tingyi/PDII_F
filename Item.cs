@@ -11,7 +11,7 @@ namespace PDII_F
 {
     internal class Item : Stuff
     {
-        public static List<Item._Item> Items = new List<Item._Item>();
+        public static List<_Item> Items = new List<_Item>();
         
         public static void AddItem(string name, int price)
         {
@@ -44,7 +44,7 @@ namespace PDII_F
             return Items.Count();
         }
 
-        public static string ShowItems(string time, List<Stuff._Item> list) 
+        public static string ShowItems(string time, List<_Item> list) 
         {
             string s = String.Format("{0:0000000}",Form1.GetID());
             string tmp = "= = = = = = = = = = = = = = = =\n "+time+"\n";
@@ -64,7 +64,8 @@ namespace PDII_F
                 tmp += "\n-------------------------------";
                 total += item.Price;
             }
-            tmp += $"\n\n\n            Total - {total.ToString()}\n";
+            total = (total < 0) ? 0 : total;
+            tmp += $"\n\n\n            Total : {total.ToString()}\n";
             tmp += "= = = = = = = = = = = = = = = =\n";
 
             if (GetCount() == 0) return "";

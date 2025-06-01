@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace PDII_F
 {   
-    internal class MainItem
+    internal class MainItem : Stuff
     {
-        public static List<Stuff._Item> MainItems = new List<Stuff._Item>();
+        public static List<_Item> MainItems = new List<_Item>();
 
         public static void AddItem(string name,int price)
         {
-            Item._Item add = new Item._Item();
+            _Item add = new _Item();
             add.Name = name;
             add.Price = price;
             MainItems.Add(add);
@@ -33,14 +33,14 @@ namespace PDII_F
             AddItem("紅茶", 20);
         }
 
-        public static Item._Item GetByIndex(int index) 
+        public static _Item GetByIndex(int index) 
         {
             return MainItems[index];
         }
 
-        public static Item._Item GetByName(string name) 
+        public static _Item GetByName(string name) 
         {
-            foreach (Item._Item item in MainItems) 
+            foreach (_Item item in MainItems) 
             {
                 if (item.Name == name) return item;
             }

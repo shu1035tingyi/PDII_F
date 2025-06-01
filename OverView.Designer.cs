@@ -48,12 +48,11 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.MaximumSize = new System.Drawing.Size(294, 577);
-            this.label1.MinimumSize = new System.Drawing.Size(260, 1000);
+            this.label1.MinimumSize = new System.Drawing.Size(260, 2000);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 1000);
+            this.label1.Size = new System.Drawing.Size(260, 2000);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // OverView
             // 
