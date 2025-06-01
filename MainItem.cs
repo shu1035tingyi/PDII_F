@@ -9,7 +9,7 @@ using System.Windows.Forms.VisualStyles;
 using System.Data;
 
 namespace PDII_F
-{   
+{
     internal class MainItem : Stuff
     {
         public static List<_Item> MainItems = new List<_Item>();
@@ -31,13 +31,18 @@ namespace PDII_F
                 MainItems.Add(MainItem.Parse("豆漿", 25));
                 MainItems.Add(MainItem.Parse("紅茶", 20));
             }
-            else 
+            else
             {
                 MainItems = ReadMainItem();
             }
         }
-
-        private static List<_Item> ReadMainItem(string Path = @".\MainItem.txt") 
+        /// 來源: https://learn.microsoft.com/zh-tw/troubleshoot/developer/visualstudio/csharp/language-compilers/read-write-text-file
+        /// <summary>
+        /// 利用 Visual C# 讀取文字檔
+        /// </summary>
+        /// <param name="Path">檔案路徑</param>
+        /// <returns>Lsit {Stuff._Item} </returns>
+        private static List<_Item> ReadMainItem(string Path = @".\MainItem.txt")
         {
             List<_Item> items = new List<_Item>();
             String line;
@@ -64,14 +69,14 @@ namespace PDII_F
             return items;
         }
 
-        public static _Item GetByIndex(int index) 
+        public static _Item GetByIndex(int index)
         {
             return MainItems[index];
         }
 
-        public static _Item GetByName(string name) 
+        public static _Item GetByName(string name)
         {
-            foreach (_Item item in MainItems) 
+            foreach (_Item item in MainItems)
             {
                 if (item.Name == name) return item;
             }

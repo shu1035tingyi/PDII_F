@@ -29,7 +29,6 @@ namespace PDII_F
                 switch (args[0])
                 {
                     case "-r":
-
                         if (args[0] == "-r" & int.Parse(args[1]) > 0)
                         {
                             start(int.Parse(args[1]));
@@ -105,7 +104,7 @@ namespace PDII_F
             Application.Run(form1);
             MessageBox.Show("目前單號:" + Form1.GetID().ToString(),"程式結束",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
         }
-        static void debug_start(string s) 
+        static void debug_start(string s)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

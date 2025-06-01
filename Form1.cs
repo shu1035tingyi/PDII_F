@@ -94,8 +94,6 @@ namespace PDII_F
         /// <summary>
         /// 這個部分由AI協助完成
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btn_other_Click(object sender, EventArgs e)
         {
             Other other = new Other();
@@ -129,18 +127,21 @@ namespace PDII_F
             {
                 sw.WriteLine(label1.Text);
             }
-            //這裡假設已連接明細印表機
-            //
-            // 使用 label1.Text 即可傳出
-            //
-
+            try
+            {
+                // 這裡假設已連接明細印表機
+                // 使用 label1.Text 即可傳出
+                // 太麻煩先跳過👍
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"{error}\n請確認細列印機!","明細列印錯誤",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+            }
             button_del_all_Click(sender,e);
             Form1.NextID();
             MessageBox.Show("訂單完成","",MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             
         }
-
-
         public void Button_Enable(bool key)
         {
             button_reset.Enabled = key;
@@ -149,9 +150,9 @@ namespace PDII_F
         }
         public void PanelObj_Enable(bool key)
         {
-            foreach (Control c in PanelObject.Controls) 
+            foreach (Control c in PanelObject.Controls)
             {
-                if (c is Button button) 
+                if (c is Button button)
                 { 
                     c.Enabled = key;
                 }
@@ -192,7 +193,13 @@ namespace PDII_F
             System.Diagnostics.Process.Start("https://github.com/shu1035tingyi/PDII_F");
         }
 
-
+        /*
+         * 這裡有點醜
+         * 未來可以用 panel
+         * foreach (Control c in PanelObject.Controls)
+         * 對 Button 進行初始化
+         * 懂得都懂 先跳過😀
+         */
         private void button3_Click(object sender, EventArgs e) { FinshClick(button3.Text); }
         private void button4_Click(object sender, EventArgs e) { FinshClick(button4.Text); }
         private void button5_Click(object sender, EventArgs e) { FinshClick(button5.Text); }
@@ -205,5 +212,5 @@ namespace PDII_F
         private void button12_Click(object sender, EventArgs e) { FinshClick(button12.Text); }
         private void button13_Click(object sender, EventArgs e) { FinshClick(button13.Text); }
 
-    }   
+    }
 }

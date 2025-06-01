@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace PDII_F
 {
-    internal class Stuff
+    public class Stuff
     {
         public class _Item
         {
             public string Name { get; set; }
-            public int Price { get; set; }
+            public int Price { get; set; }// 這裡允許負數，如折扣
         }
         public static _Item Parse(string name,int price)
         {

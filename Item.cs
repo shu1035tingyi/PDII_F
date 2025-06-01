@@ -14,14 +14,14 @@ namespace PDII_F
         public static List<_Item> Items = new List<_Item>();
 
 
-        public static void Add_item(_Item i) 
+        public static void Add_item(_Item i)
         {
             Items.Add(i);
         }
 
-        public static void DelLastItem() 
+        public static void DelLastItem()
         {
-            if (Items.Count > 0) 
+            if (Items.Count > 0)
             {
                 Items.RemoveAt(Items.Count - 1);
             }
@@ -32,12 +32,12 @@ namespace PDII_F
             Items.Clear();
         }
 
-        public static int GetCount() 
+        public static int GetCount()
         {
             return Items.Count();
         }
 
-        public static string ShowItems(string time, List<_Item> list) 
+        public static string ShowItems(string time, List<_Item> list)
         {
             string s = String.Format("{0:0000000}",Form1.GetID());
             string tmp = "= = = = = = = = = = = = = = = =\n "+time+"\n";
@@ -66,10 +66,9 @@ namespace PDII_F
             else return tmp;
         }
 
-
+        /// 來源: "https://blog.csdn.net/u014453443/article/details/121784786"
         /// <summary>
         /// 使用ascii來判斷字串的寬度，因中文字符寬度較大，則以`2`來記數。
-        /// 來源: "https://blog.csdn.net/u014453443/article/details/121784786"
         /// </summary>
         /// <param name="s">string</param>
         /// <returns>return 0 if null or "" </returns>
