@@ -75,7 +75,7 @@ namespace PDII_F
                             try
                             {
                                 debug_contex += ("Class Item Test...\n");
-                                for (int i = -10; i < 20; i++) Item.Parse(i.ToString(),i);
+                                for (int i = -10; i < 20; i++) Item.Additem(Item.Parse(i.ToString(),i));
                                 while (Form1.ID < 9999999) Form1.NextID();
                                 debug_contex += Item.ShowItems("YYYY/MM/DD - - - - ", Item.Items);
                             }
