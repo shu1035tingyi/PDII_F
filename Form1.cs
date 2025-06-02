@@ -1,4 +1,15 @@
-﻿using System;
+﻿// code Review (Power By Copilot):
+// Strengths:
+// - Follows WinForms conventions, with good separation of concerns (UI, state).
+// - Button and panel enabling/disabling is centralized.
+// - Uses partial class for maintainability.
+// Suggestions:
+// - Spelling: Is_Satrted → Is_Started.                                                         - Done
+// - Consider extracting repeated logic (e.g., item button click handlers) to a generic handler. - Pass  : I'll do if I have time 👍.
+// - Some fields (e.g., _id) could be initialized or validated more robustly.                    - Done
+// - Comments are helpful but could be expanded for public methods.                              - Ignore: I Tried.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +28,7 @@ namespace PDII_F
 {
     public partial class Form1 : Form
     {
-        private static int _id;
+        private static int _id = 1;
         public static int ID
         {
             get { return _id; }
@@ -28,13 +39,13 @@ namespace PDII_F
             _id++;
         }
 
-        public static int GetID(bool format = false)
+        public static int GetID()
         {
             return ID;
         }
 
 
-        public bool Is_Satrted = false;
+        public bool Is_Started = false;
         public string Started_time = "";
         public Form1()
         {
@@ -54,9 +65,9 @@ namespace PDII_F
 
         private void button_del_all_Click(object sender, EventArgs e)
         {
-            Is_Satrted = false;
-            Button_Enable(Is_Satrted);
-            PanelObj_Enable(Is_Satrted);
+            Is_Started = false;
+            Button_Enable(Is_Started);
+            PanelObj_Enable(Is_Started);
             button_start.Visible = true;
             label1.Text = "";
             Item.Clear();
@@ -67,9 +78,9 @@ namespace PDII_F
         private void button_start_Click(object sender, EventArgs e)
         {
             Started_time = System.DateTime.Now.ToString();
-            Is_Satrted = true;
+            Is_Started = true;
             button_start.Visible = false;
-            PanelObj_Enable(Is_Satrted);
+            PanelObj_Enable(Is_Started);
 
         }
 
@@ -87,7 +98,7 @@ namespace PDII_F
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Label_info.Text = "Version : 0.0.2a\n" + System.DateTime.Now.ToString();
+            Label_info.Text = "Version : 0.1.0b\n" + System.DateTime.Now.ToString();
         }
 
 
@@ -104,7 +115,7 @@ namespace PDII_F
                 bool success = int.TryParse(other.ItemPrice, out p);
                 if (success)
                 {
-                    Item.Add_item(Item.Parse(other.ItemName+" -自訂項目", p));
+                    Item.Additem(Item.Parse(other.ItemName+" -自訂項目", p));
                 }
                 else MessageBox.Show($"輸入參數: \"{other.ItemPrice}\" 無效!\n","OK" ,MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -183,7 +194,7 @@ namespace PDII_F
         public void FinshClick(string name)
         {
             Item._Item i = MainItem.GetByName(name);
-            Item.Add_item(i);
+            Item.Additem(i);
             show();
         }
 

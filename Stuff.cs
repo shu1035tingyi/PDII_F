@@ -1,4 +1,12 @@
-﻿using System;
+﻿// code Review (Power By Copilot):
+// Strengths:
+// - Encapsulation of item properties via _Item class.
+// - Simple, readable Parse method.
+// Suggestions:
+// - _Item could be renamed for clarity (e.g., ItemData).                   - Pass  : Nope.
+// - Consider adding validation to prevent negative prices if not intended. - Ignore: Yes, I have intended.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

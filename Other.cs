@@ -1,4 +1,12 @@
-﻿using System;
+﻿// code Review (Power By Copilot):
+// Strengths:
+// - Simple, clear form for adding custom items.
+// - Properties for retrieving user input.
+// Suggestions:
+// - Validate ItemName/ItemPrice before closing dialog to prevent bad input. - Pass : Validate in Form1.cs 
+// - Consider using int.TryParse for price validation.                       - Pass : Validate in Form1.cs 
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

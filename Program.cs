@@ -1,4 +1,13 @@
-﻿using System;
+﻿// code Review (Power By Copilot):
+// Strengths:
+// - Clear entry point with argument handling for different modes (normal, debug, resume from order).
+// - Debug mode is helpful for diagnostics and item listing.
+// Suggestions:
+// - Consider validating args length before accessing args[1] to avoid exceptions.                  - Done
+// - The code mixes English and Chinese in comments/messages; consistency might help maintenance.   - Ignore: Too lazy to do it...
+// - Consider handling parse failures for int.Parse more gracefully (TryParse).                     - Done
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -29,14 +38,17 @@ namespace PDII_F
                 switch (args[0])
                 {
                     case "-r":
-                        if (args[0] == "-r" & int.Parse(args[1]) > 0)
+                        int inID = 1;
+                        if (args.Length > 1 && int.TryParse(args[1], out int parsedId) && parsedId > 0)
                         {
-                            start(int.Parse(args[1]));
+                            inID = parsedId;
                         }
-                        else
+                        else if (args.Length > 1)
                         {
-                            MessageBox.Show("請輸入正確的單號", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("請輸入有效的單號", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
                         }
+                        start(inID);
                         break;
 
 

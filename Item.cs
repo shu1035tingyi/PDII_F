@@ -1,4 +1,13 @@
-﻿using System;
+﻿// code Review (Power By Copilot):
+// Strengths:
+// - Good separation of static collection management (Add, Remove, Clear, Show).
+// - ShowItems method formats output clearly, including total.
+// Suggestions:
+// - CheckString could be moved/utilized elsewhere if needed by other classes.              - Ignore
+// - Consider thread safety if Items is accessed from multiple threads (not evident here).  - TODO  : coming soon...
+// - Method naming: Add_item → AddItem (C# convention is PascalCase).                      - Done
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Security;
@@ -14,7 +23,7 @@ namespace PDII_F
         public static List<_Item> Items = new List<_Item>();
 
 
-        public static void Add_item(_Item i)
+        public static void Additem(_Item i)
         {
             Items.Add(i);
         }

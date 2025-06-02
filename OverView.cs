@@ -1,4 +1,11 @@
-﻿using System;
+﻿// code Review (Power By Copilot):
+// Strengths:
+// - Clear property for setting label text for display.
+// Suggestions:
+// - OverView_Load is empty; remove if not needed.                                          - Pass : It not that Easy to remove it.
+// - LabelViewText property is public; if only meant for certain uses, restrict accordingly.- Done
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,16 +23,13 @@ namespace PDII_F
         public string LabelViewText
         {
             get { return label1.Text; } 
-            set { label1.Text = value; }
+            internal set { label1.Text = value; }
         }
         public OverView()
         {
             InitializeComponent();
         }
 
-        private void OverView_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void OverView_Load(object sender, EventArgs e) { }
     }
 }

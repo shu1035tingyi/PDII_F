@@ -1,4 +1,12 @@
-﻿using System;
+﻿// code Review (Power By Copilot):
+// Strengths:
+// - Setup supports both hardcoded and file-loaded initialization.
+// - Defensive programming with error handling in file reading.
+// Suggestions:
+// - Typo: "Lsit" in comment should be "List".                                              - Done
+// - Consider using using blocks for StreamReader for automatic disposal.                   - Done
+// - MainItems could be set to readonly or private set if not meant to change outside class.- Pass : Too diffical to me.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,8 +49,37 @@ namespace PDII_F
         /// 利用 Visual C# 讀取文字檔
         /// </summary>
         /// <param name="Path">檔案路徑</param>
-        /// <returns>Lsit {Stuff._Item} </returns>
+        /// <returns>List {Stuff._Item} </returns>
         private static List<_Item> ReadMainItem(string Path = @".\MainItem.txt")
+        {
+            List<_Item> items = new List<_Item>();
+            try
+            {
+                using (StreamReader sr = new StreamReader(Path))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (!line.StartsWith("#"))
+                        {
+                            string[] tmp = line.Split(' ');
+                            items.Add(MainItem.Parse(tmp[0], int.Parse(tmp[1])));
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e}\n請盡速聯繫開發人員!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // sr.Close(); 當 using (...) 完成或異常時會自動釋放資源
+            return items;
+        }
+                
+
+
+        [Obsolete("這個方法較不常用", true)]
+        public static List<_Item> OldReadMainItem(string Path = @".\MainItem.txt")
         {
             List<_Item> items = new List<_Item>();
             String line;
