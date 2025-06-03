@@ -11,6 +11,7 @@ Clsaa Program Designing II: Final Report
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Thanks](#thanks)
 - [License](#license)
 
 ## Features
@@ -65,6 +66,10 @@ PDII_F.exe -r 114514
 ## Contributing
 
 Any ways is welcome!!!
+
+## Thanks
+
+- [github copilot code review](https://github.com/copilot/share/4a2f4302-08c4-8cf7-b013-cc0824b04033)
 
 ## License
 
