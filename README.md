@@ -20,19 +20,23 @@ Clsaa Program Designing II: Final Report
 
 ## Installation
 
-Explain how to install or set up your project. For example:
+- Per Install:
 
-```bash
-git clone https://github.com/shu1035tingyi/PDII_F.git
-cd theproject
-setup.bat
-```
+  [Releases](https://github.com/shu1035tingyi/PDII_F/releases/tag/v0.0.2-alpha)
 
-If using Visual Studio:
-1. click `<>Code` -> Open with visual studio
-2. Open the solution (.sln) file in Visual Studio.
-3. run [setup.bat](setup.bat) (in the same path)
-4. Build the project.
+- Other ways:
+
+  ```bash
+  git clone https://github.com/shu1035tingyi/PDII_F.git
+  cd theproject
+  setup.bat
+  ```
+  
+  If using Visual Studio:
+  1. click `<>Code` -> Open with visual studio
+  2. Open the solution (.sln) file in Visual Studio.
+  3. run [setup.bat](setup.bat) (in the same path)
+  4. Build the project.
 
 ## Usage
 
